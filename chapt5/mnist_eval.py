@@ -30,6 +30,7 @@ def evaluate(mnist):
         # 使用滑动平均后的变量来预测输出
         # variables_to_restore函数可以将变量的滑动平均值赋给变量
         # 测试集acc是 0.9839
+        # 使用滑动平均后的效果要稍微好一些 0.9839 vs 0.9836
         variables_moving_average = tf.train.ExponentialMovingAverage(mnist_training.MOVING_AVERAGE_DECAY)
         variables_to_restore = variables_moving_average.variables_to_restore()
         saver = tf.train.Saver(variables_to_restore)
